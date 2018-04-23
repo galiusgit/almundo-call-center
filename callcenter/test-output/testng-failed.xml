@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.almundo.callcenter.CallcenterMainProcessTest">
+      <class name="com.almundo.callcenter.ConcurrentlyCase3Tests">
         <methods>
-          <include name="dispararLLamadas"/>
+          <include name="concurrentTest"/>
         </methods>
-      </class> <!-- com.almundo.callcenter.CallcenterMainProcessTest -->
+      </class> <!-- com.almundo.callcenter.ConcurrentlyCase3Tests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
