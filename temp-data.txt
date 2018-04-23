@@ -1,0 +1,22 @@
+Inicialización de proyecto con:
+
+https://start.spring.io/
+
+callcenter.zip
+
+---------------------------------------
+
+1) se utiliza eclipse oxygen
+
+2) se instala spring tools
+
+---------------------------------------
+
+class diagram generator
+
+http://www.objectaid.com/home
+
+
+---------------------------------------
+
+
