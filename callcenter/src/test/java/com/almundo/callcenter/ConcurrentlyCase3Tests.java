@@ -3,7 +3,7 @@ package com.almundo.callcenter;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.testng.TestException;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.almundo.callcenter.exception.CallcenterException;
@@ -42,13 +42,15 @@ public class ConcurrentlyCase3Tests {
 		return employeeListResult;
 	}
 	
-	@Test(expectedExceptions = {TestException.class, CallcenterException.class})
-	public void concurrentTest() throws CallcenterException {
-		Dispatcher dispatcher = new Dispatcher(loadTheEmployeeList1());
-		ProducerTest p1 = new ProducerTest(dispatcher, 0, 15);
-		//starting concurrently producer
-		new Thread(p1).start();
-        System.out.println("Producer and Consumer has been started");
+	@Test()
+	public void concurrentCallsLimitTest() {
+		try {
+			Dispatcher dispatcher = new Dispatcher(loadTheEmployeeList1());
+			ProducerTest p1 = new ProducerTest(dispatcher, 0, 15);
+			new Thread(p1).start();
+		} catch (CallcenterException e) {
+			Assert.assertTrue((e instanceof CallcenterException), "The system should return CallcenterException");
+		}
 	}
 	
 

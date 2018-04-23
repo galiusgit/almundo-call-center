@@ -5,7 +5,6 @@ import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
@@ -20,7 +19,7 @@ import com.almundo.callcenter.model.EmployeeType;
 import com.almundo.callcenter.util.SequenceUtil;
 
 /**
- * The Class Dispatcher.
+ * The main class Dispatcher.
  * 
  * NOTE: Debe existir una clase Dispatcher encargada de manejar las 
  * llamadas, y debe contener el método dispatchCall para que las 
@@ -33,7 +32,9 @@ public class Dispatcher implements IDispatcher {
 	/** The Constant logger. */
 	private static final Logger logger = LoggerFactory.getLogger(Dispatcher.class);
 
-	/** The Constant MAX_AVAILABLE_CALLS. */
+	/** The Constant MAX_AVAILABLE_CALLS. 
+	 * NOTE: La clase Dispatcher debe tener la capacidad de poder procesar 10 llamadas al mismo tiempo (de modo concurrente).
+	 * */
 	public static final Integer MAX_AVAILABLE_CALLS = 10;
 
 	/** The blocking queue calls. */
@@ -68,30 +69,33 @@ public class Dispatcher implements IDispatcher {
 		Set<EmployeeModel> operatorEmployeeList = employeeList.stream()
 				.filter(e -> EmployeeType.OPERATOR.equals(e.getType())).collect(Collectors.toSet());
 		if (operatorEmployeeList != null) {
+			//TODO: Implements with PriorityBlockingQueue
 			this.blockingQueueOperatorEmployees = new LinkedBlockingQueue<>(operatorEmployeeList);
 		}
-
 		Set<EmployeeModel> supervisorEmployeeList = employeeList.stream()
 				.filter(e -> EmployeeType.SUPERVISOR.equals(e.getType())).collect(Collectors.toSet());
 		if (supervisorEmployeeList != null) {
+			//TODO: Implements with PriorityBlockingQueue
 			this.blockingQueueSupervisorEmployees = new LinkedBlockingQueue<>(supervisorEmployeeList);
 		}
-
 		Set<EmployeeModel> directorEmployeeList = employeeList.stream()
 				.filter(e -> EmployeeType.DIRECTOR.equals(e.getType())).collect(Collectors.toSet());
 		if (directorEmployeeList != null) {
+			//TODO: Implements with PriorityBlockingQueue
 			this.blockingQueueDirectorEmployees = new LinkedBlockingQueue<>(directorEmployeeList);
 		}
-
+		//TODO: Implements with PriorityBlockingQueue
 		this.blockingQueueCalls = new LinkedBlockingQueue<>(MAX_AVAILABLE_CALLS);
+		//TODO: Implements with PriorityBlockingQueue
 		this.blockingQueueCallWaiting = new LinkedBlockingQueue<>(MAX_AVAILABLE_CALLS);
 		this.random = new Random();
 	}
 
 	/**
-	 * Debe existir una clase Dispatcher encargada de manejar las llamadas, y debe
-	 * contener el método dispatchCall para que las asigne a los empleados
+	 * NOTE: El método dispatchCall para que las asigne a los empleados
 	 * disponibles.
+	 * 
+	 * Dispatch call
 	 *
 	 * @param reference the reference
 	 * @return the call model
@@ -102,33 +106,29 @@ public class Dispatcher implements IDispatcher {
 		if (reference == null) {
 			throw new CallcenterException("The reference cannot be null");
 		}
-
-		CallModel callModel = new CallModel(buildConsecutiveCallId(), buildRandomTime(), reference);
-
+		CallModel callModel = new CallModel(buildConsecutiveCallId(), reference);
 		try {
 			// adds the employee manager
 			EmployeeModel employeeManager = getAvailableEmployee();
 			if(employeeManager == null) {
 				logger.error("There are no available employees");
-				System.out.println("There are no available employees");
 				return dispatchWaitingCall(callModel);
 			}
 			callModel.setEmployeeManager(employeeManager);
-			this.blockingQueueCalls.offer(callModel, callModel.getSecondsTimeLife(), TimeUnit.SECONDS);
-			//TODO: remover esto
-			System.out.println("----> Consumed: " + callModel.getReference() + ", "
+			//TODO: test with limit time
+			//this.blockingQueueCalls.offer(callModel, callModel.getSecondsTimeLife(), TimeUnit.SECONDS);
+			this.blockingQueueCalls.offer(callModel);
+			String infoMsg = "----> Consumed: " + callModel.getReference() + ", "
 					+ callModel.getEmployeeManager().getName() + ", type: " 
-					+ callModel.getEmployeeManager().getType().name());
+					+ callModel.getEmployeeManager().getType().name();
+			logger.debug(infoMsg);
 			return callModel;
 		} catch (IllegalStateException e1) {
 			// added to waiting call
 			logger.error("The process is not available by concurrency", e1);
-			System.out.println("The process is not available by concurrency");
 			throw new CallcenterException("The process is not available by concurrency", e1);
-			
 		}  catch (InterruptedException e2) {
 			logger.error("An error occurred when trying to obtain the employee", e2);
-			System.out.println("An error occurred when trying to obtain the employee");
 			return dispatchWaitingCall(callModel);
 		}
 	}
@@ -140,12 +140,13 @@ public class Dispatcher implements IDispatcher {
 	 * @return the call model
 	 * @throws CallcenterException the callcenter exception
 	 */
-	private CallModel dispatchWaitingCall(CallModel callModel) throws CallcenterException {
-		try {
-			this.blockingQueueCallWaiting.offer(callModel, callModel.getSecondsTimeLife(), TimeUnit.SECONDS);
-		} catch (InterruptedException e) {
-			throw new CallcenterException("The process is not available by concurrency", e);
-		}
+	private CallModel dispatchWaitingCall(CallModel callModel) {
+//		try {
+//			this.blockingQueueCallWaiting.offer(callModel, callModel.getSecondsTimeLife(), TimeUnit.SECONDS);
+//		} catch (InterruptedException e) {
+//			throw new CallcenterException("The process is not available by concurrency", e);
+//		}
+		this.blockingQueueCallWaiting.offer(callModel);
 		return callModel;
 	}
 

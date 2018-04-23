@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WebIndexController {
 
-	@RequestMapping("/")
-	public String getIndexHtmlFile() {
-		return "index";
+	@RequestMapping(value = "/index")
+	public String getIndexPage() {
+			return "index";
 	}
 }

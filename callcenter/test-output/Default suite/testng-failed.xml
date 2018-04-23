@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.almundo.callcenter.ConcurrentlyCase3Tests">
+      <class name="com.almundo.callcenter.ConcurrentlyCase4Tests">
         <methods>
           <include name="concurrentTest"/>
         </methods>
-      </class> <!-- com.almundo.callcenter.ConcurrentlyCase3Tests -->
+      </class> <!-- com.almundo.callcenter.ConcurrentlyCase4Tests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

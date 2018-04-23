@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +14,13 @@ import com.almundo.callcenter.manager.impl.Dispatcher;
 import com.almundo.callcenter.model.EmployeeModel;
 import com.almundo.callcenter.model.EmployeeType;
 
+/**
+ * The Class ConcurrentlyCase1Tests.
+ */
 public class ConcurrentlyCase1Tests {
+	
+	/** The Constant logger. */
+	private static final Logger logger = LoggerFactory.getLogger(ConcurrentlyCase1Tests.class);
 	
 	/**
 	 * Load the employee list.
@@ -46,7 +54,7 @@ public class ConcurrentlyCase1Tests {
 	/**
 	 * Concurrent test.
 	 * 
-	 * De 16 empleados toma 10;
+	 * NOTE: De 16 empleados toma 10;
 	 *
 	 * @throws InterruptedException the interrupted exception
 	 * @throws CallcenterException 
@@ -57,8 +65,7 @@ public class ConcurrentlyCase1Tests {
 		ProducerTest p1 = new ProducerTest(dispatcher, 0, 10);
 		//starting concurrently producer
 		new Thread(p1).start();
-        System.out.println("Producer and Consumer has been started");
-		
+		logger.debug("Producer and Consumer has been started");
 		TimeUnit.SECONDS.sleep(2);
 		Assert.assertTrue(dispatcher.getBlockingQueueCalls().size() == 10);
         Assert.assertTrue(dispatcher.getAllAvailableEmployees().size() == 6);

@@ -9,7 +9,7 @@ public class CallModel {
 	private Integer id;
 	
 	/** The seconds time life. */
-	private long secondsTimeLife;
+//	private long secondsTimeLife;
 	
 	/** The employee manager. */
 	private EmployeeModel employeeManager;
@@ -24,10 +24,10 @@ public class CallModel {
 	 * @param secondsTimeLife the seconds time life
 	 * @param reference the reference
 	 */
-	public CallModel(Integer id, long secondsTimeLife, String reference) {
+	public CallModel(Integer id, String reference) {
 		super();
 		this.id = id;
-		this.secondsTimeLife = secondsTimeLife;
+		//this.secondsTimeLife = secondsTimeLife;
 		this.reference = reference;
 	}
 
@@ -50,22 +50,22 @@ public class CallModel {
 	}
 
 	/**
-	 * Gets the seconds time life.
-	 *
-	 * @return the seconds time life
-	 */
-	public long getSecondsTimeLife() {
-		return secondsTimeLife;
-	}
-
-	/**
-	 * Sets the seconds time life.
-	 *
-	 * @param secondsTimeLife the new seconds time life
-	 */
-	public void setSecondsTimeLife(long secondsTimeLife) {
-		this.secondsTimeLife = secondsTimeLife;
-	}
+//	 * Gets the seconds time life.
+//	 *
+//	 * @return the seconds time life
+//	 */
+//	public long getSecondsTimeLife() {
+//		return secondsTimeLife;
+//	}
+//
+//	/**
+//	 * Sets the seconds time life.
+//	 *
+//	 * @param secondsTimeLife the new seconds time life
+//	 */
+//	public void setSecondsTimeLife(long secondsTimeLife) {
+//		this.secondsTimeLife = secondsTimeLife;
+//	}
 
 	/**
 	 * Gets the employee manager.

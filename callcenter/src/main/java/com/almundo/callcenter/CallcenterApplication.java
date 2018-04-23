@@ -2,13 +2,22 @@ package com.almundo.callcenter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
  * The Class CallcenterApplication. 
- * Initializes the application
+ * Initializes the spring boot application
+ * 
+ * @version 0.0.1
  */
 @SpringBootApplication
-public class CallcenterApplication {
+public class CallcenterApplication extends SpringBootServletInitializer {
+	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(CallcenterApplication.class);
+	}
 
 	/**
 	 * The main method.

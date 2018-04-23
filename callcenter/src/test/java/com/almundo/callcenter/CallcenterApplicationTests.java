@@ -7,6 +7,8 @@ import java.util.concurrent.BlockingQueue;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
@@ -18,13 +20,25 @@ import com.almundo.callcenter.model.CallModel;
 import com.almundo.callcenter.model.EmployeeModel;
 import com.almundo.callcenter.model.EmployeeType;
 
+/**
+ * The Class CallcenterApplicationTests with spring boot test manager.
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CallcenterApplicationTests {
 	
+	/** The Constant logger. */
+	private static final Logger logger = LoggerFactory.getLogger(ConcurrentlyCase1Tests.class);
+	
+	/** The dispatcher. */
 	@Autowired
 	Dispatcher dispatcher;
 	
+	/**
+	 * Employee list. Builds the bean for dispatcher
+	 *
+	 * @return the sets the
+	 */
 	@Bean
     public Set<EmployeeModel> employeeList() {
         return loadTheEmployeeList0();
@@ -59,11 +73,21 @@ public class CallcenterApplicationTests {
 		return employeeListResult;
 	}
 
+	/**
+	 * Dispatch call employee list null.
+	 *
+	 * @throws CallcenterException the callcenter exception
+	 */
 	@Test(expected = CallcenterException.class)
 	public void dispatchCall_employeeList_null() throws CallcenterException {
 		dispatcher.dispatchCall(null);
 	}
 	
+	/**
+	 * Dispatch call case 1.
+	 *
+	 * @throws CallcenterException the callcenter exception
+	 */
 	@Test()
 	public void dispatchCall_case1() throws CallcenterException {
 		dispatcher.dispatchCall("Call 1");
@@ -78,17 +102,22 @@ public class CallcenterApplicationTests {
 	
 	/**
 	 * NOTE: Cada llamada puede durar un tiempo aleatorio entre 5 y 10 segundos.
+	 * 
 	 * Choose between 2 defined numbers (5, 10) randomly
 	 */
 	@Test
 	public void buildRandomTime_between_2_defined_numbers(){
 		long timeResult = dispatcher.buildRandomTime();
+		logger.debug("random time: " + timeResult);
 		Assert.assertTrue(timeResult == 5 || timeResult == 10);
 		long timeResult1 = dispatcher.buildRandomTime();
+		logger.debug("random time: " + timeResult1);
 		Assert.assertTrue(timeResult1 == 5 || timeResult1 == 10);
 		long timeResult2 = dispatcher.buildRandomTime();
+		logger.debug("random time: " + timeResult2);
 		Assert.assertTrue(timeResult2 == 5 || timeResult2 == 10);
 		long timeResult3 = dispatcher.buildRandomTime();
+		logger.debug("random time: " + timeResult3);
 		Assert.assertTrue(timeResult3 == 5 || timeResult3 == 10);
 	}
 	
@@ -96,17 +125,8 @@ public class CallcenterApplicationTests {
 		
 	}
 	
-	//de modo concurrente
-	public void procesar10llamadasAlmismoTiempo() {
-		
-	}
-	
 	public void duracionLlamadaAleatoriaEntre5y10Segundos() {
 
-	}
-	
-	public void llegan10LLamadasAltiempo() {
-		
 	}
 	
 	public void quePasaCuandoNoHayEmpleadoLibre() {

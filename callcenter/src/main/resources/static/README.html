@@ -1,0 +1,49 @@
+<h1 id="almundo.callcenter">Almundo.callcenter</h1>
+<p>callcenter.almundo.com, herramientas básicas de Java y diseño de soluciones orientadas a objetos.</p>
+<p>Existe un call center donde hay 3 tipos de empleados: operador, supervisor y director. El proceso de la atención de una llamada telefónica en primera instancia debe ser atendida por un operador, si no hay ninguno libre debe ser atendida por un supervisor, y de no haber tampoco supervisores libres debe ser atendida por un director.</p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="requerimientos">Requerimientos</h3>
+<ul>
+<li>Debe existir una clase Dispatcher encargada de manejar las llamadas, y debe contener el método dispatchCall para que las asigne a los empleados disponibles.</li>
+<li>El método dispatchCall puede invocarse por varios hilos al mismo tiempo.</li>
+<li>La clase Dispatcher debe tener la capacidad de poder procesar 10 llamadas al mismo tiempo (de modo concurrente).</li>
+<li>Cada llamada puede durar un tiempo aleatorio entre 5 y 10 segundos.</li>
+<li>Debe tener un test unitario donde lleguen 10 llamadas.</li>
+</ul>
+<h3 id="extrasplus">Extras/Plus</h3>
+<ul>
+<li>Dar alguna solución sobre qué pasa con una llamada cuando no hay ningún empleado libre.</li>
+<li>Dar alguna solución sobre qué pasa con una llamada cuando entran más de 10 llamadas concurrentes.</li>
+<li>Agregar los tests unitarios que se crean convenientes.</li>
+<li>Agregar documentación de código.</li>
+</ul>
+<h3 id="instalación">Instalación</h3>
+<p>Construcción del artefacto Jar (callcenter-0.0.1.jar)</p>
+<pre><code>mvn clean install</code></pre>
+<h2 id="corriendo-los-tests">Corriendo los tests</h2>
+<p>Las pruebas están implementadas en Junit y TestNg</p>
+<h3 id="para-ejecutar-las-pruebas-ubicarse-en-el-folder-almundo-call-centercallcenter">Para ejecutar las pruebas ubicarse en el folder /almundo-call-center/callcenter</h3>
+<p>Ejecutar el siguiente comando:</p>
+<pre><code>mvn test</code></pre>
+<h2 id="despliegue">Despliegue</h2>
+<p>Ubicarse en el folder /almundo-call-center/callcenter</p>
+<pre><code>java -jar target/callcenter-0.0.1.jar</code></pre>
+<h3 id="link-inicial-de-la-aplicación">Link inicial de la aplicación</h3>
+<pre><code>http://localhost:8085/index.html</code></pre>
+<h2 id="construido-con">Construido con</h2>
+<ul>
+<li><a href="https://projects.spring.io/spring-boot/">SpringBoot</a> - The web framework used</li>
+<li><a href="https://maven.apache.org/">Maven</a> - Dependency Management</li>
+<li><a href="https://start.spring.io/">SPRING INITIALIZR</a> - Bootstrap your application now</li>
+</ul>
+<h2 id="versión-0.0.1">Versión 0.0.1</h2>
+<h2 id="autor">Autor</h2>
+<ul>
+<li><strong>Jorge Romero</strong> - <em>Ingeniero de sistemas</em> - <a href="https://www.linkedin.com/in/jorge-luis-romero-casta%C3%B1eda-04791167/">Linkedin</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE.md">LICENSE.md</a> file for details</p>
+<h2 id="agradecimientos">Agradecimientos</h2>
+<ul>
+<li>Almundo, por la oportunidad</li>
+</ul>
