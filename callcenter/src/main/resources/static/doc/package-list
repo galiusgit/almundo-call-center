@@ -5,4 +5,5 @@ com.almundo.callcenter.exception
 com.almundo.callcenter.manager
 com.almundo.callcenter.manager.impl
 com.almundo.callcenter.model
+com.almundo.callcenter.semaphore
 com.almundo.callcenter.util

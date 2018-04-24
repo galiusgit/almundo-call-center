@@ -1,10 +1,10 @@
 package com.almundo.callcenter.manager.impl;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
@@ -24,6 +24,8 @@ import com.almundo.callcenter.util.SequenceUtil;
  * NOTE: Debe existir una clase Dispatcher encargada de manejar las 
  * llamadas, y debe contener el método dispatchCall para que las 
  * asigne a los empleados disponibles.
+ * 
+ * @version 0.0.1
  *  
  */
 @Component
@@ -51,9 +53,6 @@ public class Dispatcher implements IDispatcher {
 
 	/** The blocking queue director employees. */
 	private BlockingQueue<EmployeeModel> blockingQueueDirectorEmployees;
-
-	/** The random. */
-	private Random random;
 
 	/**
 	 * Instantiates a new dispatcher.
@@ -88,7 +87,6 @@ public class Dispatcher implements IDispatcher {
 		this.blockingQueueCalls = new LinkedBlockingQueue<>(MAX_AVAILABLE_CALLS);
 		//TODO: Implements with PriorityBlockingQueue
 		this.blockingQueueCallWaiting = new LinkedBlockingQueue<>(MAX_AVAILABLE_CALLS);
-		this.random = new Random();
 	}
 
 	/**
@@ -141,11 +139,6 @@ public class Dispatcher implements IDispatcher {
 	 * @throws CallcenterException the callcenter exception
 	 */
 	private CallModel dispatchWaitingCall(CallModel callModel) {
-//		try {
-//			this.blockingQueueCallWaiting.offer(callModel, callModel.getSecondsTimeLife(), TimeUnit.SECONDS);
-//		} catch (InterruptedException e) {
-//			throw new CallcenterException("The process is not available by concurrency", e);
-//		}
 		this.blockingQueueCallWaiting.offer(callModel);
 		return callModel;
 	}
@@ -175,7 +168,7 @@ public class Dispatcher implements IDispatcher {
 	 * @return the long
 	 */
 	public long buildRandomTime() {
-		return this.random.nextBoolean() ? 5 : 10;
+		return ThreadLocalRandom.current().nextLong(5,10);
 	}
 
 	/**
@@ -229,6 +222,22 @@ public class Dispatcher implements IDispatcher {
 		employeeListResult.addAll(this.blockingQueueSupervisorEmployees);
 		employeeListResult.addAll(this.blockingQueueDirectorEmployees);
 		return employeeListResult;
+	}
+	
+	/**
+	 * Adds the available employee.
+	 *
+	 * @param employee the employee
+	 * @throws InterruptedException the interrupted exception
+	 */
+	public void addAvailableEmployee(EmployeeModel employee) throws InterruptedException {
+		if(EmployeeType.OPERATOR.equals(employee.getType())) {
+			this.blockingQueueOperatorEmployees.put(employee);
+		}else if(EmployeeType.SUPERVISOR.equals(employee.getType())) {
+			this.blockingQueueSupervisorEmployees.put(employee);
+		}else if(EmployeeType.DIRECTOR.equals(employee.getType())) {
+			this.blockingQueueDirectorEmployees.put(employee);
+		}
 	}
 
 }

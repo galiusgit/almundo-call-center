@@ -2,6 +2,8 @@ package com.almundo.callcenter.model;
 
 /**
  * The Enum EmployeeType.
+ * 
+ * @version 0.0.1
  */
 public enum EmployeeType {
 	

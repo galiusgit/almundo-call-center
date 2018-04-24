@@ -2,6 +2,8 @@ package com.almundo.callcenter.exception;
 
 /**
  * The Class CallcenterException.
+ * 
+ * @version 0.0.1
  */
 public class CallcenterException extends Exception {
 	

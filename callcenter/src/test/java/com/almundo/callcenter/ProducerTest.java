@@ -1,13 +1,10 @@
 package com.almundo.callcenter;
 
-import java.util.concurrent.TimeUnit;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.almundo.callcenter.exception.CallcenterException;
 import com.almundo.callcenter.manager.impl.Dispatcher;
-import com.almundo.callcenter.model.CallModel;
 
 /**
  * The Class ProducerTest.
@@ -47,7 +44,7 @@ public class ProducerTest implements Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	@Override
-	public void run() {
+	public synchronized void run() {
 		for (int i = this.startReference; i < this.endRefenrece; i++) {
 			logger.debug("Init call producere: " + i);
 			try {

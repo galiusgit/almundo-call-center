@@ -109,34 +109,11 @@ public class CallcenterApplicationTests {
 	public void buildRandomTime_between_2_defined_numbers(){
 		long timeResult = dispatcher.buildRandomTime();
 		logger.debug("random time: " + timeResult);
-		Assert.assertTrue(timeResult == 5 || timeResult == 10);
+		Assert.assertTrue(timeResult >= 5 && timeResult <= 10);
 		long timeResult1 = dispatcher.buildRandomTime();
 		logger.debug("random time: " + timeResult1);
-		Assert.assertTrue(timeResult1 == 5 || timeResult1 == 10);
-		long timeResult2 = dispatcher.buildRandomTime();
-		logger.debug("random time: " + timeResult2);
-		Assert.assertTrue(timeResult2 == 5 || timeResult2 == 10);
-		long timeResult3 = dispatcher.buildRandomTime();
-		logger.debug("random time: " + timeResult3);
-		Assert.assertTrue(timeResult3 == 5 || timeResult3 == 10);
+		Assert.assertTrue(timeResult >= 5 && timeResult <= 10);
 	}
-	
-	public void agregarEmpleadosDisponibles() {
-		
-	}
-	
-	public void duracionLlamadaAleatoriaEntre5y10Segundos() {
-
-	}
-	
-	public void quePasaCuandoNoHayEmpleadoLibre() {
-		
-	}
-	
-	public void quePasaCuandoLLeganMasDe10LLamadas() {
-		
-	}
-
 	
 
 }

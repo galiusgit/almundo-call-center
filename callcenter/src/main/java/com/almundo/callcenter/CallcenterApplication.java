@@ -14,6 +14,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class CallcenterApplication extends SpringBootServletInitializer {
 	
+	/**
+	 * configuration
+	 *
+	 * @param application the application
+	 * @return the spring application builder
+	 */
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(CallcenterApplication.class);

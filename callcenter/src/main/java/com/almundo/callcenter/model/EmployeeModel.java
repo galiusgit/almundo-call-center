@@ -2,6 +2,8 @@ package com.almundo.callcenter.model;
 
 /**
  * The Class EmployeeModel.
+ * 
+ * @version 0.0.1
  */
 public class EmployeeModel {
 	

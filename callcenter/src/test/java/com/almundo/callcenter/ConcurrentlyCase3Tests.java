@@ -11,6 +11,9 @@ import com.almundo.callcenter.manager.impl.Dispatcher;
 import com.almundo.callcenter.model.EmployeeModel;
 import com.almundo.callcenter.model.EmployeeType;
 
+/**
+ * The Class ConcurrentlyCase3Tests.
+ */
 public class ConcurrentlyCase3Tests {
 	
 	/**
@@ -42,6 +45,9 @@ public class ConcurrentlyCase3Tests {
 		return employeeListResult;
 	}
 	
+	/**
+	 * Concurrent calls limit test.
+	 */
 	@Test()
 	public void concurrentCallsLimitTest() {
 		try {
@@ -51,6 +57,18 @@ public class ConcurrentlyCase3Tests {
 		} catch (CallcenterException e) {
 			Assert.assertTrue((e instanceof CallcenterException), "The system should return CallcenterException");
 		}
+	}
+	
+	/**
+	 * Concurrent 10 calls test.
+	 *
+	 * @throws CallcenterException the callcenter exception
+	 */
+	@Test()
+	public void concurrent10CallsTest() throws CallcenterException {
+		Dispatcher dispatcher = new Dispatcher(loadTheEmployeeList1());
+		ProducerTest p1 = new ProducerTest(dispatcher, 0, 10);
+		new Thread(p1).start();
 	}
 	
 

@@ -11,19 +11,27 @@ import com.almundo.callcenter.manager.impl.Dispatcher;
 import com.almundo.callcenter.model.EmployeeModel;
 import com.almundo.callcenter.model.EmployeeType;
 
+/**
+ * The Class EmployessTest.
+ */
 public class EmployessTest {
 	
-	@Test
-	public void dispararLLamadas() {
-		//TODO
-	}
-	
+	/**
+	 * Gets the employees for case 1.
+	 *
+	 * @return the employees for case 1
+	 */
 	private Set<EmployeeModel> getEmployeesForCase1(){
 		Set<EmployeeModel> employeeListTest1 = new HashSet<>();
 		employeeListTest1.add(new EmployeeModel(1, EmployeeType.OPERATOR, "Employee 1"));
 		return employeeListTest1;
 	}
 	
+	/**
+	 * Gets the employees for case 2.
+	 *
+	 * @return the employees for case 2
+	 */
 	private Set<EmployeeModel> getEmployeesForCase2(){
 		Set<EmployeeModel> employeeListTest2 = new HashSet<>();
 		employeeListTest2.add(new EmployeeModel(11, EmployeeType.SUPERVISOR, "Employee 11"));
@@ -31,18 +39,34 @@ public class EmployessTest {
 		return employeeListTest2;
 	}
 	
+	/**
+	 * Gets the employees for case 3.
+	 *
+	 * @return the employees for case 3
+	 */
 	private Set<EmployeeModel> getEmployeesForCase3(){
 		Set<EmployeeModel> employeeListTest3 = new HashSet<>();
 		employeeListTest3.add(new EmployeeModel(15, EmployeeType.DIRECTOR, "Employee 15"));
 		return employeeListTest3;
 	}
 	
+	/**
+	 * Gets the employees for case 4.
+	 *
+	 * @return the employees for case 4
+	 */
 	private Set<EmployeeModel> getEmployeesForCase4(){
 		Set<EmployeeModel> employeeListTest4 = new HashSet<>();
 		return employeeListTest4;
 	}
 	
 	
+	/**
+	 * Prioridad atencion 2.
+	 *
+	 * @throws CallcenterException the callcenter exception
+	 * @throws InterruptedException the interrupted exception
+	 */
 	@Test
 	public void prioridadAtencion2() throws CallcenterException, InterruptedException {
 		// 1) operator
@@ -64,35 +88,6 @@ public class EmployessTest {
 		Dispatcher dispatcher4 = new Dispatcher(this.getEmployeesForCase4());
 		EmployeeModel e4 = dispatcher4.getAvailableEmployee();
 		Assert.assertNull(e4);
-	}
-	
-	public void agregarEmpleadosDisponibles() {
-		
-	}
-	
-	public void dispararLlamadasVariosHilosAlTiempo() {
-		
-	}
-	
-	//de modo concurrente
-	public void procesar10llamadasAlmismoTiempo() {
-		
-	}
-	
-	public void duracionLlamadaAleatoriaEntre5y10Segundos() {
-
-	}
-	
-	public void llegan10LLamadasAltiempo() {
-		
-	}
-	
-	public void quePasaCuandoNoHayEmpleadoLibre() {
-		
-	}
-	
-	public void quePasaCuandoLLeganMasDe10LLamadas() {
-		
 	}
 
 }

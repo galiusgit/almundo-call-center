@@ -11,6 +11,8 @@ import com.almundo.callcenter.model.EmployeeType;
 
 /**
  * The Class BeanDefinitions.
+ * 
+ * @version 0.0.1
  */
 @Configuration
 public class BeanDefinitions {

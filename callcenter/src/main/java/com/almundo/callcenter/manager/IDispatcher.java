@@ -5,6 +5,8 @@ import com.almundo.callcenter.model.CallModel;
 
 /**
  * The Interface IDispatcher.
+ * 
+ * @version 0.0.1
  */
 public interface IDispatcher {
 

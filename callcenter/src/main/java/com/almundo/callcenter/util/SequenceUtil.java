@@ -4,6 +4,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * The Class SequenceUtil.
+ * 
+ * @version 0.0.1
  */
 public class SequenceUtil {
 

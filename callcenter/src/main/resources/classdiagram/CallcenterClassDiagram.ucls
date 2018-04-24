@@ -4,140 +4,147 @@
   <class id="1" language="java" name="com.almundo.callcenter.manager.impl.Dispatcher" project="callcenter" 
     file="/callcenter/src/main/java/com/almundo/callcenter/manager/impl/Dispatcher.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="613" y="194"/>    
+    <position height="-1" width="-1" x="723" y="273"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="2" language="java" name="com.almundo.callcenter.manager.IDispatcher" project="callcenter" 
-    file="/callcenter/src/main/java/com/almundo/callcenter/manager/IDispatcher.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="126" y="19"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="3" language="java" name="com.almundo.callcenter.model.CallModel" project="callcenter" 
+  <class id="2" language="java" name="com.almundo.callcenter.model.CallModel" project="callcenter" 
     file="/callcenter/src/main/java/com/almundo/callcenter/model/CallModel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="134" y="260"/>    
+    <position height="-1" width="-1" x="220" y="120"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.almundo.callcenter.model.EmployeeModel" project="callcenter" 
-    file="/callcenter/src/main/java/com/almundo/callcenter/model/EmployeeModel.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="375" y="605"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <enumeration id="5" language="java" name="com.almundo.callcenter.model.EmployeeType" project="callcenter" 
+  <enumeration id="3" language="java" name="com.almundo.callcenter.model.EmployeeType" project="callcenter" 
     file="/callcenter/src/main/java/com/almundo/callcenter/model/EmployeeType.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="97" y="596"/>    
+    <position height="-1" width="-1" x="490" y="516"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="6" language="java" name="com.almundo.callcenter.util.SequenceUtil" project="callcenter" 
-    file="/callcenter/src/main/java/com/almundo/callcenter/util/SequenceUtil.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="914" y="68"/>    
+  <class id="4" language="java" name="com.almundo.callcenter.model.EmployeeModel" project="callcenter" 
+    file="/callcenter/src/main/java/com/almundo/callcenter/model/EmployeeModel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="223" y="390"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
+  <class id="5" language="java" name="com.almundo.callcenter.controller.CallcenterController" project="callcenter" 
+    file="/callcenter/src/main/java/com/almundo/callcenter/controller/CallcenterController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="952" y="54"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="6" language="java" name="com.almundo.callcenter.manager.IDispatcher" project="callcenter" 
+    file="/callcenter/src/main/java/com/almundo/callcenter/manager/IDispatcher.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="711" y="54"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
   <class id="7" language="java" name="com.almundo.callcenter.exception.CallcenterException" project="callcenter" 
     file="/callcenter/src/main/java/com/almundo/callcenter/exception/CallcenterException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="930" y="244"/>    
+    <position height="-1" width="-1" x="744" y="509"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="8">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="9" name="blockingQueueOperatorEmployees">        
-        <position height="18" width="174" x="378" y="391"/>      
-      </attribute>      
-      <multiplicity id="10" minimum="0" maximum="2147483647"/>    
+  <realization id="8">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <association id="9">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="10" name="dispatcher"/>      
+      <multiplicity id="11" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="11">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
   <association id="12">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="13" name="blockingQueueCallWaiting">        
-        <position height="18" width="131" x="265" y="191"/>      
-      </attribute>      
-      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="13" name="type"/>      
+      <multiplicity id="14" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="15">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="16" name="blockingQueueCalls">        
-        <position height="18" width="102" x="290" y="259"/>      
+      <attribute id="16" name="blockingQueueSupervisorEmployees">        
+        <position height="18" width="184" x="360" y="276"/>      
       </attribute>      
       <multiplicity id="17" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="18">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="19" name="blockingQueueDirectorEmployees">        
-        <position height="18" width="169" x="319" y="418"/>      
-      </attribute>      
-      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="18">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="19" name="blockingQueueCallWaiting">        
+        <position height="18" width="131" x="358" y="150"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="21">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="22" name="type"/>      
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="22" name="employeeManager"/>      
       <multiplicity id="23" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="24">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="25" name="employeeManager">        
-        <position height="18" width="96" x="176" y="458"/>      
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="25" name="blockingQueueOperatorEmployees">        
+        <position height="18" width="174" x="373" y="378"/>      
       </attribute>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
+      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="27">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="28" name="blockingQueueSupervisorEmployees">        
-        <position height="18" width="184" x="291" y="446"/>      
+      <attribute id="28" name="blockingQueueDirectorEmployees">        
+        <position height="18" width="169" x="369" y="324"/>      
       </attribute>      
       <multiplicity id="29" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="30">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="31" name="blockingQueueCalls">        
+        <position height="18" width="102" x="349" y="205"/>      
+      </attribute>      
+      <multiplicity id="32" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
