@@ -6,6 +6,7 @@
       <class name="com.almundo.callcenter.ConcurrentlyCase4Tests">
         <methods>
           <include name="concurrentTest"/>
+          <include name="concurrentTest2"/>
         </methods>
       </class> <!-- com.almundo.callcenter.ConcurrentlyCase4Tests -->
     </classes>

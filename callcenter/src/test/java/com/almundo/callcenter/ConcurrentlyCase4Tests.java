@@ -76,5 +76,52 @@ public class ConcurrentlyCase4Tests {
 		Assert.assertTrue(dispatcher.getBlockingQueueCallWaiting().size() == 5, "returns 5 calls on hold");
 	}
 	
+	/**
+	 * 10 threads at the time.
+	 *
+	 * @throws InterruptedException the interrupted exception
+	 * @throws CallcenterException the callcenter exception
+	 */
+	@Test()
+	public void concurrentTest_10_threads_at_time() throws InterruptedException, CallcenterException {
+		Dispatcher dispatcher = new Dispatcher(loadTheEmployeeList1());
+		
+		ProducerTest p1 = new ProducerTest(dispatcher, 0, 5);
+		ProducerTest p2 = new ProducerTest(dispatcher, 6, 10);
+		ProducerTest p3 = new ProducerTest(dispatcher, 11, 15);
+		ProducerTest p4 = new ProducerTest(dispatcher, 16, 20);
+		ProducerTest p5 = new ProducerTest(dispatcher, 21, 25);
+		ProducerTest p6 = new ProducerTest(dispatcher, 26, 30);
+		ProducerTest p7 = new ProducerTest(dispatcher, 31, 35);
+		ProducerTest p8 = new ProducerTest(dispatcher, 36, 40);
+		ProducerTest p9 = new ProducerTest(dispatcher, 41, 45);
+		ProducerTest p10 = new ProducerTest(dispatcher, 46, 50);
+		
+		ConsumerTest c1 = new ConsumerTest(dispatcher);
+		ConsumerTest c2 = new ConsumerTest(dispatcher);
+		logger.debug("------>  Producer and Consumer has been started");
+		
+		//starting concurrently producer
+		new Thread(p1).start();
+		new Thread(p2).start();
+		new Thread(p3).start();
+		new Thread(p4).start();
+		new Thread(p5).start();
+		new Thread(p6).start();
+		new Thread(p7).start();
+		new Thread(p8).start();
+		new Thread(p9).start();
+		new Thread(p10).start();
+		
+		new Thread(p3).start();
+		new Thread(c1).start();
+		new Thread(c2).start();
+		
+		Thread.sleep(TimeUnit.SECONDS.toMillis(2));
+		Assert.assertTrue(dispatcher.getAllAvailableEmployees().size() == 0, "All employees must be employed");
+		Assert.assertTrue(dispatcher.getAvailableEmployee() == null, "Must be without employees");
+		Assert.assertTrue(dispatcher.getBlockingQueueCallWaiting().size() == 7, "returns 7 waiting calls");
+	}
+	
 
 }
